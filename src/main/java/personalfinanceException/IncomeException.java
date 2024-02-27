@@ -1,6 +1,6 @@
 package personalfinanceException;
 
-public class IncomeException extends RunTimeException{
+public class IncomeException extends RuntimeException{
 	public IncomeException(String message) {
 	super (message);
 	}

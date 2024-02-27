@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import personalfinance.model.Expenses;
-import personalfinanceservice.ExpensesService;
+import personalfinance.model.Expense;
+import personalfinanceservice.ExpenseService;
 
 @RestController
 @RequestMapping("/expenses")
-public class ExpensesController {
-	private final ExpensesService expensesService;
+public class ExpenseController {
+	private final ExpenseService expensesService;
 
-	public ExpensesController(ExpensesService expensesService) {
+	public ExpenseController(ExpenseService expensesService) {
 		this.expensesService = expensesService;
 	}
 
@@ -28,17 +28,17 @@ public class ExpensesController {
 	// return new ResponseEntity<>(loggedExpense,HttpStatus.CREATED);
 //}
 	@PostMapping("/Create")
-	public Expenses createuser(@RequestBody Expenses expenses) {
-		return expensesService.createExpense(expenses);
+	public Expense createuser(@RequestBody Expense expense) {
+		return expensesService.createExpense(expense);
 	}
 
-	@GetMapping("/{expenseId")
-	public ResponseEntity<Expenses> getExpenses(@PathVariable Long ExpensesId) {
-		Expenses expenses = expensesService.getExpenses(ExpensesId);
-		if (expenses != null) {
-			return new ResponseEntity<>(expenses, HttpStatus.OK);
+	@GetMapping("/{expenseId}")
+	public ResponseEntity<Expense> getExpense(@PathVariable Long ExpenseId) {
+		Expense expense = expensesService.getExpenses(ExpenseId);
+		if (expense != null) {
+			return new ResponseEntity<>(expense, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(expenses, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(expense, HttpStatus.NOT_FOUND);
 		}
 	}
 
@@ -48,8 +48,8 @@ public class ExpensesController {
 //	return new ResponseEntity<>(expenses, HttpStatus.OK);	
 //}
 	@PutMapping("/{expenseId}")
-	public ResponseEntity<Expenses> updateExpense(@PathVariable Long expenseId, @RequestBody Expenses updateExpense) {
-		Expenses updated = expensesService.updateExpense(expenseId, updateExpense);
+	public ResponseEntity<Expense> updateExpense(@PathVariable Long expenseId, @RequestBody Expense updateExpense) {
+		Expense updated = expensesService.updateExpense(expenseId, updateExpense);
 		if (updated != null) {
 			return new ResponseEntity<>(updated, HttpStatus.OK);
 		} else {

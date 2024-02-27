@@ -1,31 +1,31 @@
 package personalfinanceservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import personalfinance.model.Expenses;
+import personalfinance.model.Expense;
 import personalfinancerepository.ExpensesRepository;
 import java.util.List;
 @Service
-public class ExpensesService {
+public class ExpenseService {
 	@Autowired
     private  ExpensesRepository expenseRepository;
 	
-	Expenses expense;
+	Expense expense;
     //public ExpensesService(ExpensesRepository expenseRepository) {
       // this.expenseRepository = expenseRepository;
    //}
-    public List<Expenses> getAllExpenses() {
+    public List<Expense> getAllExpenses() {
         return expenseRepository.findAll();
     }
-    public Expenses createExpense(Expenses expense) {
+    public Expense createExpense(Expense expense) {
     return expenseRepository.save(expense);
     }
-    public Expenses getExpenses(Long expensesId) {
-    	Expenses expense =expenseRepository.findById(expensesId).get();
+    public Expense getExpenses(Long expensesId) {
+    	Expense expense =expenseRepository.findById(expensesId).get();
     	return expense;
     	
     }
-    public Expenses updateExpense(Long expenseId, Expenses updatedExpense) {
-    	Expenses existingExpense = (expenseRepository.findById(expenseId)).orElse(null);
+    public Expense updateExpense(Long expenseId, Expense updatedExpense) {
+    	Expense existingExpense = (expenseRepository.findById(expenseId)).orElse(null);
        
         if (existingExpense != null) {
             existingExpense.setDescription(updatedExpense.getDescription());

@@ -1,10 +1,24 @@
 package personalfinanceException;
 
-public class UserException extends RunTimeException{
-	public UserException(String message) {
-		super(message);
+import org.springframework.http.HttpStatus;
+
+public class UserException {
+	private final String message;
+	private final Throwable throwable;
+	private final HttpStatus httpStatus;
+	public UserException(String message, Throwable throwable, HttpStatus httpStatus) {
+		super();
+		this.message =message;
+		this.throwable =throwable;
+		this.httpStatus =httpStatus;
 	}
- public UserException(String message, Throwable cause) {
-	 super(message , cause);
+ public String getMessage()	{
+	 return message;
+ }
+ public Throwable getThrowable() {
+	 return throwable;
+ }
+ public HttpStatus getHttpStatus() {
+	 return httpStatus; 
  }
 }

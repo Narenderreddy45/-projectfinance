@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 @Entity
 @Data
-@Table(name ="Income")
+@Table(name ="income")
 public class Income {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Income {
     private String frequency;
     private Date startDate;
     @ManyToOne
-    @JoinColumn(name="user Id")
+    @JoinColumn(name="user_id")
     public Long getIncomeId() {
 		return incomeId;
 	}

@@ -1,4 +1,4 @@
-package personalfinancecontroller;
+package personalfinance.personalfinanceproject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import personalfinance.model.User;
-import personalfinanceservice.UserService;
+import personalfinance.personalfinanceproject.model.User;
+import personalfinance.personalfinanceproject.service.UserService;
 
 @RestController
 @RequestMapping("/users")
@@ -42,7 +42,6 @@ public class UserController {
 
 	@PutMapping("/{userId}")
 	public ResponseEntity<User> updateUserProfile(@PathVariable Long userId, @RequestBody User updateUser) {
-		@SuppressWarnings("unchecked")
 		User updateUserProfile = (User) userSerice.updateUserProfile(userId, updateUser);
 		if (updateUserProfile != null) {
 			return new ResponseEntity<>(updateUserProfile, HttpStatus.OK);

@@ -1,4 +1,4 @@
-package personalfinancecontroller;
+package personalfinance.personalfinanceproject.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import personalfinance.model.Expense;
-import personalfinanceservice.ExpenseService;
+
+import personalfinance.personalfinanceproject.model.Expense;
+import personalfinance.personalfinanceproject.service.ExpenseService;
 
 @RestController
 @RequestMapping("/expenses")

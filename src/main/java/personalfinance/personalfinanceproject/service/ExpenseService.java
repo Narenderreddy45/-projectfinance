@@ -1,8 +1,9 @@
-package personalfinanceservice;
+package personalfinance.personalfinanceproject.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import personalfinance.model.Expense;
-import personalfinancerepository.ExpensesRepository;
+
+import personalfinance.personalfinanceproject.model.Expense;
+import personalfinance.personalfinanceproject.repository.ExpensesRepository;
 import java.util.List;
 @Service
 public class ExpenseService {

@@ -1,4 +1,4 @@
-package personalfinanceException;
+package personalfinance.personalfinanceproject.exception;
 
 import org.springframework.http.HttpStatus;
 
